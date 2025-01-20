@@ -10,7 +10,7 @@ pipeline {
 
         stage('File list before maven build'){
             steps{
-                sh 'll /opt/taskflow/taskflow-project-management-application/'
+                sh 'ls -l /opt/taskflow/taskflow-project-management-application/'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('File list after maven build'){
             steps{
-                sh 'll /opt/taskflow/taskflow-project-management-application/'
+                sh 'ls -l /opt/taskflow/taskflow-project-management-application/'
             }
         }
     }
