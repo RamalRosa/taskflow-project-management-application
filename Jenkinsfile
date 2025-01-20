@@ -8,9 +8,21 @@ pipeline {
             }
         }
 
-        stage('working directory'){
+        stage('File list before maven build'){
             steps{
-                sh 'pwd'
+                sh 'll /opt/taskflow/taskflow-project-management-application/'
+            }
+        }
+
+        stage('Build'){
+            steps{
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('File list after maven build'){
+            steps{
+                sh 'll /opt/taskflow/taskflow-project-management-application/'
             }
         }
     }
