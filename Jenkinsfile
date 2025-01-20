@@ -8,21 +8,21 @@ pipeline {
             }
         }
 
-        stage('File list before maven build'){
-            steps{
-                sh 'ls -l /opt/taskflow/taskflow-project-management-application/'
-            }
-        }
-
         stage('Build'){
             steps{
                 sh 'mvn clean install'
             }
         }
 
-        stage('File list after maven build'){
-            steps{
-                sh 'ls -l /opt/taskflow/taskflow-project-management-application/'
+        stage('Build Container'){
+            steps {
+                sh 'docker build -t taskflow-app .'
+            }
+        }
+
+        stage('Run Container'){
+            steps {
+                sh 'docker run -d -p 7000:7000 --name taskflow-container taskflow-app'
             }
         }
     }
