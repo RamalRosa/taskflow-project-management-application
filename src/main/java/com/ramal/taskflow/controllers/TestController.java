@@ -13,6 +13,6 @@ public class TestController {
     @GetMapping("/hello")
     public String hello() {
         log.info("hello 👋");
-        return "Hello World from Test Controller 👋 | Version: 0.0.2 | 2025-01-20 ";
+        return "Hello World from Test Controller 👋 | Version: 0.0.1 | 2025-01-21 ";
     }
 }
